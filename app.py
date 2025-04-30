@@ -33,7 +33,7 @@ def upload_file():
             df_normalized = normalize_data(df)
 
             # Store data into the database
-            df_normalized.to_sql('csv_data', con=engine, if_exists='append', index=False)
+            df_normalized.to_sql('csv_data', con=engine, if_exists='append', index=False, schema=None)
 
             return jsonify({"message": "File uploaded and data stored successfully!"}), 200
         except Exception as e:
