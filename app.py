@@ -55,7 +55,7 @@ def upload_file():
 
             return jsonify({"message": "File uploaded and data stored successfully!"}), 200
         except Exception as e:
-            return jsonify({"error": f"EEEError processing file: {str(e)}"}), 500
+            return jsonify({"error": f"This is Error processing file: {str(e)}"}), 5000
     else:
         return jsonify({"error": "Invalid file format. Only CSV is allowed."}), 400
 
