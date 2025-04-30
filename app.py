@@ -10,6 +10,7 @@ app = Flask(__name__)
 DATABASE_URI = 'sqlite:////home/ec2-user/API.db'
 
 engine = create_engine(DATABASE_URI, echo=True)
+
 @app.route('/', methods=['GET'])
 def index():
     return render_template('upload.html')
@@ -32,10 +33,10 @@ def upload_file():
             # Normalize the data (use StandardScaler for example)
             df_normalized = normalize_data(df)
 
-            # Store data into the database
+            # Store data into the database - REMOVED schema parameter
             df_normalized.to_sql('csv_data', con=engine, if_exists='append', index=False)
 
-            return jsonify({"message": "Finally File uploaded and data stored successfully!"}), 200
+            return jsonify({"message": "File uploaded and data stored successfully!"}), 200
         except Exception as e:
             return jsonify({"error": f"Error processing file: {str(e)}"}), 500
     else:
