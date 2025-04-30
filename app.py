@@ -6,7 +6,9 @@ from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
 
 # Set up the SQLite database engine
-DATABASE_URI = 'sqlite:///API.db'
+#DATABASE_URI = 'sqlite:///API.db'
+DATABASE_URI = 'sqlite:////home/ec2-user/API.db'
+
 engine = create_engine(DATABASE_URI, echo=True)
 @app.route('/', methods=['GET'])
 def index():
